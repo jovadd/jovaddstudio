@@ -172,6 +172,7 @@ p:last-child    { margin-bottom: 0; }
 /* Colori testo */
 .text-primary { color: var(--color-primary); }
 .text-muted   { color: var(--color-text-muted); }
+.text-muted-hover:hover{ color: var(--color-primary);}
 .text-error   { color: var(--color-error); }
 .text-success { color: var(--color-success); }
 .text-warning { color: var(--color-warning); }

@@ -27,7 +27,7 @@
 
           <p class="text-s text-muted">
             <?php esc_html_e( 'Scritto da:', 'jovaddstudio' ); ?>
-            <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author" class="font-medium">
+            <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author" class="font-medium text-muted-hover">
               <?php the_author(); ?>
             </a>
             <?php esc_html_e( 'in data', 'jovaddstudio' ); ?>

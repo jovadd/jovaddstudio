@@ -6,11 +6,11 @@ Custom minimal WordPress theme con Design System a token CSS. Progettato per ess
 
 ## Requisiti
 
-| Requisito | Versione minima |
-|-----------|----------------|
-| WordPress | 6.0 |
-| PHP | 8.0 |
-| Browser | tutti i moderni (no IE) |
+| Requisito | Versione minima         |
+| --------- | ----------------------- |
+| WordPress | 6.0                     |
+| PHP       | 8.0                     |
+| Browser   | tutti i moderni (no IE) |
 
 ---
 
@@ -21,7 +21,7 @@ Custom minimal WordPress theme con Design System a token CSS. Progettato per ess
    wp-content/themes/jovaddstudio/
    ```
 2. Attiva il tema da **Aspetto → Temi** nel pannello di amministrazione WordPress.
-3. Carica i font personalizzati (se previsti) nella cartella `assets/fonts/` — questa cartella è esclusa dal repository tramite `.gitignore`.
+3. Carica i font personalizzati (se previsti) nella cartella `assets/fonts/` — questa cartella è esclusa dal repository tramite `.gitignore` - tramite la funzione del tema Tipografia
 
 ---
 
@@ -84,16 +84,16 @@ Contiene tutti i valori di design: colori, tipografia, spazi, ombre, border-radi
 
 **Scala tipografica fluida** (base `1rem = 10px`):
 
-| Classe | Dimensione |
-|--------|-----------|
-| `.text-xs` | 1.1–1.2rem |
-| `.text-s` | 1.3–1.4rem |
-| `.text-m` | 1.5–1.6rem |
-| `.text-l` | 1.8–2rem |
-| `.text-xl` | 2.2–2.6rem |
-| `.text-2xl` | 2.8–3.4rem |
-| `.text-3xl` | 3.6–4.6rem |
-| `.text-4xl` | 4.8–6.4rem |
+| Classe          | Dimensione                |
+| --------------- | ------------------------- |
+| `.text-xs`      | 1.1–1.2rem                |
+| `.text-s`       | 1.3–1.4rem                |
+| `.text-m`       | 1.5–1.6rem                |
+| `.text-l`       | 1.8–2rem                  |
+| `.text-xl`      | 2.2–2.6rem                |
+| `.text-2xl`     | 2.8–3.4rem                |
+| `.text-3xl`     | 3.6–4.6rem                |
+| `.text-4xl`     | 4.8–6.4rem                |
 | `.text-display` | 4.8–6.4rem + bold + tight |
 
 ---
@@ -107,53 +107,70 @@ Reset, tipografia base e classi di utilità. **Non modificare questo file.**
 ```html
 <!-- Contenitore standard (max 1440px) -->
 <div class="container">
+  <!-- Contenitore testo (max 72ch) -->
+  <div class="container-s">
+    <!-- Griglia responsive -->
+    <div class="grid grid-3">
+      <!-- 3 col → 2 su tablet → 1 su mobile -->
+      <div class="grid grid-2">
+        <!-- 2 col → 1 su mobile piccolo -->
 
-<!-- Contenitore testo (max 72ch) -->
-<div class="container-s">
-
-<!-- Griglia responsive -->
-<div class="grid grid-3">   <!-- 3 col → 2 su tablet → 1 su mobile -->
-<div class="grid grid-2">   <!-- 2 col → 1 su mobile piccolo -->
-
-<!-- Col span -->
-<div class="col-span-2">
+        <!-- Col span -->
+        <div class="col-span-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
 ```
 
 #### Flex
 
 ```html
 <div class="flex items-center justify-between gap-4">
-<div class="flex flex-col flex-1 gap-4">
+  <div class="flex flex-col flex-1 gap-4"></div>
+</div>
 ```
 
 #### Spacing
 
 ```html
 <!-- Padding -->
-<div class="p-6">       <!-- padding su tutti i lati -->
-<div class="px-6 py-4"> <!-- padding inline / block -->
+<div class="p-6">
+  <!-- padding su tutti i lati -->
+  <div class="px-6 py-4">
+    <!-- padding inline / block -->
 
-<!-- Margin -->
-<div class="mt-8 mb-4">
-<div class="mx-auto">
+    <!-- Margin -->
+    <div class="mt-8 mb-4">
+      <div class="mx-auto"></div>
+    </div>
+  </div>
+</div>
 ```
 
 #### Testo
 
 ```html
-<p class="text-muted text-s clamp-3">   <!-- grigio, piccolo, max 3 righe -->
-<h1 class="text-display uppercase">     <!-- titolo hero -->
-<span class="font-bold tracking-wide">
+<p class="text-muted text-s clamp-3"><!-- grigio, piccolo, max 3 righe --></p>
+<h1 class="text-display uppercase">
+  <!-- titolo hero -->
+  <span class="font-bold tracking-wide"></span>
+</h1>
 ```
 
 #### Utility visive
 
 ```html
 <div class="rounded-m shadow-s border bg-surface">
-<img class="w-full h-full object-cover aspect-video">
-<span class="truncate">           <!-- overflow ellipsis su una riga -->
-<span class="clamp-2">           <!-- max 2 righe con ellipsis -->
-<span class="sr-only">           <!-- visibile solo a screen reader -->
+  <img class="w-full h-full object-cover aspect-video" />
+  <span class="truncate">
+    <!-- overflow ellipsis su una riga -->
+    <span class="clamp-2">
+      <!-- max 2 righe con ellipsis -->
+      <span class="sr-only"> <!-- visibile solo a screen reader --></span></span
+    ></span
+  >
+</div>
 ```
 
 ---
@@ -179,7 +196,7 @@ La card non ha padding proprio: l'immagine di copertina è full-bleed, il conten
 ```html
 <article class="card">
   <a href="#" class="block aspect-video overflow-hidden">
-    <img class="w-full h-full object-cover" src="..." alt="...">
+    <img class="w-full h-full object-cover" src="..." alt="..." />
   </a>
   <div class="card-body">
     <span class="badge badge-primary">Categoria</span>
@@ -189,8 +206,10 @@ La card non ha padding proprio: l'immagine di copertina è full-bleed, il conten
 </article>
 
 <!-- Varianti -->
-<div class="card card-flat">    <!-- senza ombra -->
-<div class="card card-raised">  <!-- ombra più pronunciata -->
+<div class="card card-flat">
+  <!-- senza ombra -->
+  <div class="card card-raised"><!-- ombra più pronunciata --></div>
+</div>
 ```
 
 #### Badge
@@ -217,7 +236,7 @@ La card non ha padding proprio: l'immagine di copertina è full-bleed, il conten
 ```html
 <div class="form-group">
   <label class="form-label">Nome</label>
-  <input type="text" class="input" placeholder="Mario Rossi">
+  <input type="text" class="input" placeholder="Mario Rossi" />
   <span class="form-hint">Testo di aiuto</span>
 </div>
 ```
@@ -227,6 +246,7 @@ La card non ha padding proprio: l'immagine di copertina è full-bleed, il conten
 ## Template
 
 ### `index.php`
+
 Template di fallback per: **blog**, **ricerca** (`is_search()`), **archivi di categoria**, **archivi di tag**, **archivi autore** e qualsiasi altro archivio senza template dedicato.
 
 - Mostra un header contestuale con titolo e contatore risultati per le ricerche
@@ -235,6 +255,7 @@ Template di fallback per: **blog**, **ricerca** (`is_search()`), **archivi di ca
 - Paginazione
 
 ### `single.php`
+
 Template per i **singoli articoli**.
 
 - Breadcrumb con JSON-LD `BreadcrumbList`
@@ -243,6 +264,7 @@ Template per i **singoli articoli**.
 - Sezione "Leggi anche" con articoli correlati dalla stessa categoria (max 3, solo se presenti)
 
 ### `page.php`
+
 Template per le **pagine statiche**.
 
 - Titolo `<h1>` + contenuto in `.container` full-width
@@ -253,13 +275,17 @@ Template per le **pagine statiche**.
 ## Funzionalità Admin
 
 ### Duplica articoli e pagine
+
 Nel listato articoli e pagine di WordPress compare il link **"Duplica"** nelle azioni riga. Crea una bozza con:
+
 - Stessi contenuto, excerpt e attributi
 - Tutti i meta del post originale
 - Categorie, tag e tassonomie personalizzate
 
 ### Pagina Opzioni
+
 Accessibile da **Aspetto → Opzioni Tema**. Include tab per:
+
 - Impostazioni generali
 - Tipografia (con Google Fonts downloader)
 - SEO
@@ -268,22 +294,25 @@ Accessibile da **Aspetto → Opzioni Tema**. Include tab per:
 - e altri
 
 ### Breadcrumb
+
 La funzione `js_breadcrumbs()` è disponibile in qualsiasi template:
+
 ```php
 <?php js_breadcrumbs(); ?>
 ```
+
 Genera automaticamente HTML semantico (`<nav>` + `<ol>`) e il markup `JSON-LD BreadcrumbList` per i rich results di Google.
 
 ---
 
 ## Responsive
 
-| Breakpoint | Layout griglia |
-|------------|---------------|
-| > 1023px | `.grid-3` → 3 colonne |
+| Breakpoint | Layout griglia        |
+| ---------- | --------------------- |
+| > 1023px   | `.grid-3` → 3 colonne |
 | 768–1023px | `.grid-3` → 2 colonne |
-| ≤ 767px | `.grid-3` → 1 colonna |
-| ≤ 479px | `.grid-2` → 1 colonna |
+| ≤ 767px    | `.grid-3` → 1 colonna |
+| ≤ 479px    | `.grid-2` → 1 colonna |
 
 ---
 
@@ -294,4 +323,4 @@ Questo tema è distribuito sotto licenza **GNU General Public License v2 or late
 Puoi usarlo, modificarlo e ridistribuirlo liberamente nel rispetto dei termini della licenza.
 Maggiori informazioni: https://www.gnu.org/licenses/gpl-2.0.html
 
-© Giovanni Caserta / Jovadd
+©Jovadd | Code and ❤️

@@ -74,7 +74,7 @@ function js_breadcrumbs(): void {
                 $is_last = ( $i === $last ); ?>
                 <li class="flex items-center gap-2">
                     <?php if ( ! $is_last ) : ?>
-                        <a href="<?php echo esc_url( $item['url'] ); ?>" class="text-muted">
+                        <a href="<?php echo esc_url( $item['url'] ); ?>" class="text-muted breadcrumb-list">
                             <?php echo esc_html( $item['name'] ); ?>
                         </a>
                         <span aria-hidden="true">&rsaquo;</span>
