@@ -289,4 +289,9 @@ Genera automaticamente HTML semantico (`<nav>` + `<ol>`) e il markup `JSON-LD Br
 
 ## Licenza
 
-Proprietary — © Giovanni Caserta / Jovadd. Tutti i diritti riservati.
+Questo tema è distribuito sotto licenza **GNU General Public License v2 or later (GPL-2.0+)**.
+
+Puoi usarlo, modificarlo e ridistribuirlo liberamente nel rispetto dei termini della licenza.
+Maggiori informazioni: https://www.gnu.org/licenses/gpl-2.0.html
+
+© Giovanni Caserta / Jovadd
