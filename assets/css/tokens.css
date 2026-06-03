@@ -1,0 +1,215 @@
+/* ============================================================
+   tokens.css — Design Tokens
+   Modifica questo file per ogni progetto.
+   framework.css non va toccato: usa solo var() da qui.
+   ============================================================ */
+
+:root {
+
+  /* ----------------------------------------------------------
+     COLORS — Primitive palette
+     ---------------------------------------------------------- */
+
+  /* Neutrals */
+  --gray-0:  #fff;
+  --gray-1:  #f8f8f8;
+  --gray-2:  #f0f0f0;
+  --gray-3:  #e4e4e4;
+  --gray-4:  #d1d1d1;
+  --gray-5:  #b4b4b4;
+  --gray-6:  #949494;
+  --gray-7:  #737373;
+  --gray-8:  #555555;
+  --gray-9:  #3a3a3a;
+  --gray-10: #262626;
+  --gray-11: #171717;
+  --gray-12: #0a0a0a;
+
+  /* White & Black */
+  --white: #fff;
+  --black: #000;
+
+  /* White — opacità */
+  --white-10: rgb(255 255 255 / 0.10);
+  --white-20: rgb(255 255 255 / 0.20);
+  --white-30: rgb(255 255 255 / 0.30);
+  --white-40: rgb(255 255 255 / 0.40);
+  --white-50: rgb(255 255 255 / 0.50);
+  --white-60: rgb(255 255 255 / 0.60);
+  --white-70: rgb(255 255 255 / 0.70);
+  --white-80: rgb(255 255 255 / 0.80);
+  --white-90: rgb(255 255 255 / 0.90);
+
+  /* Black — opacità */
+  --black-10: rgb(0 0 0 / 0.10);
+  --black-20: rgb(0 0 0 / 0.20);
+  --black-30: rgb(0 0 0 / 0.30);
+  --black-40: rgb(0 0 0 / 0.40);
+  --black-50: rgb(0 0 0 / 0.50);
+  --black-60: rgb(0 0 0 / 0.60);
+  --black-70: rgb(0 0 0 / 0.70);
+  --black-80: rgb(0 0 0 / 0.80);
+  --black-90: rgb(0 0 0 / 0.90);
+
+  /* Brand — ink scale */
+  --brand-50:  #f5f5f4;
+  --brand-100: #e4e4e0;
+  --brand-200: #c8c8c2;
+  --brand-300: #a3a39c;
+  --brand-400: #6b6b67;
+  --brand-500: #3d3d3a;
+  --brand-600: #232320;
+  --brand-700: #131311;
+  --brand-800: #0a0a0f;
+  --brand-900: #050508;
+  --brand-950: #020204;
+
+  /* Accent — slate blue scale */
+  --accent-50:  #f0f4fb;
+  --accent-100: #dce8f5;
+  --accent-200: #b5cce8;
+  --accent-300: #82a9d6;
+  --accent-400: #5b87be;
+  --accent-500: #4a6fa5;  /* CTA, link attivo, highlight */
+  --accent-600: #3b5987;
+  --accent-700: #2e456a;
+  --accent-800: #21324e;
+  --accent-900: #152034;
+  --accent-950: #0d1421;
+
+  /* Semantic — mappa questi sulla primitiva del progetto */
+
+  /* Superfici — 80% bianco puro */
+  --color-bg:               var(--white);       /* sfondo pagina */
+  --color-surface:          var(--brand-50);    /* card, panel — off-white caldo */
+  --color-border:           var(--brand-200);
+
+  /* Testo — mai nero puro */
+  --color-text:             var(--brand-500);   /* corpo */
+  --color-text-muted:       var(--brand-300);
+  --color-heading:          var(--brand-800);   /* ink-800: titoli, logo */
+
+  /* Button dark — ink-800, non nero puro */
+  --color-primary:          var(--brand-500);
+  --color-primary-hover:    var(--brand-950);
+  --color-primary-contrast: var(--white);
+
+  /* CTA e accenti — amber-500, max 5% pagina */
+  --color-accent:           var(--accent-500);
+  --color-accent-hover:     var(--accent-600);
+  --color-accent-contrast:  var(--white);
+
+  /* Hero dark, footer — ink-900, solo per impatto mirato */
+  --color-bg-dark:          var(--brand-900);
+  --color-bg-dark-text:     var(--brand-100);
+
+  /* Stato */
+  --color-error:            #dc2626;
+  --color-success:          #16a34a;
+  --color-warning:          #d97706;
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHY — Font families
+     ---------------------------------------------------------- */
+
+  /* Font families — definite dal plugin Local Font by JD
+     Fallback gestito direttamente in framework.css con var(--font-X, fallback) */
+
+  /* Type scale — fluida 320px → 1440px — base: html font-size 62.5% (1rem = 10px) */
+  --text-xs:  clamp(1.1rem, 1rem   + 0.25vw, 1.2rem);
+  --text-s:   clamp(1.3rem, 1.22rem + 0.25vw, 1.4rem);
+  --text-m:   clamp(1.5rem, 1.41rem + 0.3vw,  1.6rem);
+  --text-l:   clamp(1.8rem, 1.6rem  + 0.55vw, 2rem);
+  --text-xl:  clamp(2.2rem, 1.87rem + 0.9vw,  2.6rem);
+  --text-2xl: clamp(2.8rem, 2.24rem + 1.5vw,  3.4rem);
+  --text-3xl: clamp(3.6rem, 2.8rem  + 2.1vw,  4.6rem);
+  --text-4xl: clamp(4.8rem, 3.36rem + 3.8vw,  6.4rem);
+
+  /* Line height */
+  --leading-tight:  1.1;
+  --leading-snug:   1.3;
+  --leading-normal: 1.5;
+  --leading-loose:  1.75;
+
+  /* Letter spacing */
+  --tracking-tight:  -0.03em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.05em;
+
+  /* Font weight */
+  --weight-thin:       300;
+  --weight-normal:     400;
+  --weight-medium:     500;
+  --weight-semibold:   600;
+  --weight-bold:       700;
+  --weight-extra-bold: 800;
+  --weight-black:      900;
+
+  /* ----------------------------------------------------------
+     SPACING — scala 4px base
+     ---------------------------------------------------------- */
+
+  /* Fissi — micro-spacing, componenti */
+  --space-1:  0.4rem;   /*  4px */
+  --space-2:  0.8rem;   /*  8px */
+  --space-3:  1.2rem;   /* 12px */
+  --space-4:  1.6rem;   /* 16px */
+  --space-5:  2rem;     /* 20px */
+  --space-6:  2.4rem;   /* 24px */
+
+  /* Fluidi 320px → 1440px — layout, sezioni */
+  --space-8:  clamp(2.4rem, 2.17rem + 0.71vw, 3.2rem);   /* 24→32px */
+  --space-10: clamp(2.8rem, 2.46rem + 1.07vw, 4rem);     /* 28→40px */
+  --space-12: clamp(3.2rem, 2.74rem + 1.43vw, 4.8rem);   /* 32→48px */
+  --space-16: clamp(4rem,   3.31rem + 2.14vw, 6.4rem);   /* 40→64px */
+  --space-20: clamp(4.8rem, 3.89rem + 2.86vw, 8rem);     /* 48→80px */
+  --space-24: clamp(5.6rem, 4.46rem + 3.57vw, 9.6rem);   /* 56→96px */
+
+  /* ----------------------------------------------------------
+     BORDER RADIUS
+     ---------------------------------------------------------- */
+
+  --radius-s:    0.4rem;   /*  4px */
+  --radius-m:    0.8rem;   /*  8px */
+  --radius-l:    1.6rem;   /* 16px */
+  --radius-full: 9999px;
+
+  /* ----------------------------------------------------------
+     SHADOWS
+     ---------------------------------------------------------- */
+
+  --shadow-s: 0 1px 3px 0 rgb(0 0 0 / 0.10), 0 1px 2px -1px rgb(0 0 0 / 0.10);
+  --shadow-m: 0 4px 6px -1px rgb(0 0 0 / 0.10), 0 2px 4px -2px rgb(0 0 0 / 0.10);
+  --shadow-l: 0 20px 25px -5px rgb(0 0 0 / 0.10), 0 8px 10px -6px rgb(0 0 0 / 0.10);
+
+  /* ----------------------------------------------------------
+     Z-INDEX
+     ---------------------------------------------------------- */
+
+  --z-base:     0;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-modal:    300;
+  --z-toast:    400;
+
+  /* ----------------------------------------------------------
+     BREAKPOINTS — solo riferimento, non usabili in media query
+     ---------------------------------------------------------- */
+
+  --bp-phone:    479px;
+  --bp-phone-l:  767px;
+  --bp-tablet:  1023px;
+  --bp-tablet-l: 1119px;
+
+  /* ----------------------------------------------------------
+     TRANSITIONS
+     ---------------------------------------------------------- */
+
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast:   150ms;
+  --duration-normal: 250ms;
+  --duration-slow:   400ms;
+
+}
