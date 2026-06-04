@@ -675,3 +675,38 @@ html { font-size: 62.5%; }
   padding: 8px 0 4px;
 }
 .js-a11y-results { padding: 0 12px 10px; border-top: 1px solid #f5f5f4; }
+
+/* ── Meta description inline editor ── */
+.js-meta-toggle.has-value { color: #16a34a; border-color: #bbf7d0; }
+
+.js-meta-edit {
+  padding: 10px 12px;
+  border-top: 1px solid #f5f5f4;
+  background: #fafaf9;
+}
+.js-meta-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  padding: 6px 8px;
+  border: 1px solid #d4d4cf;
+  border-radius: 4px;
+  color: #3d3d3a;
+  background: #fff;
+}
+.js-meta-textarea:focus { outline: none; border-color: #6b6b67; box-shadow: 0 0 0 2px #e4e4e0; }
+
+.js-meta-edit-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+.js-meta-counter           { font-size: 1.15rem; color: #a3a39c; margin-right: auto; }
+.js-meta-counter.is-ok     { color: #16a34a; }
+.js-meta-counter.is-warn   { color: #d97706; }
+.js-meta-save-msg          { font-size: 1.2rem; }
+.js-meta-save-msg.is-ok    { color: #16a34a; }
+.js-meta-save-msg.is-error { color: #dc2626; }

@@ -73,6 +73,11 @@ function js_inject_seo_meta() {
         $desc = js_get_option( 'seo_meta_description' );
         if ( $desc && is_front_page() ) {
             echo '<meta name="description" content="' . esc_attr( $desc ) . '">' . "\n";
+        } elseif ( is_singular() && ! is_front_page() ) {
+            $per_page = get_post_meta( get_queried_object_id(), '_js_meta_description', true );
+            if ( $per_page ) {
+                echo '<meta name="description" content="' . esc_attr( $per_page ) . '">' . "\n";
+            }
         }
 
         $og_image = js_get_option( 'seo_og_image' );

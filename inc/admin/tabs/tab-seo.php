@@ -95,6 +95,7 @@
     foreach ( $audit_posts as $p ) :
         $url = get_permalink( $p->ID );
     ?>
+    <?php $saved_desc = get_post_meta( $p->ID, '_js_meta_description', true ); ?>
     <div class="js-audit-row" data-post-id="<?php echo (int) $p->ID; ?>">
       <div class="js-audit-row-header">
         <div class="js-audit-row-title">
@@ -118,6 +119,29 @@
             data-url="<?php echo esc_url( $url ); ?>"
             data-nonce="<?php echo esc_attr( wp_create_nonce( 'js_admin_nonce' ) ); ?>"
           ><?php esc_html_e( 'Accessibilità', 'jovaddstudio' ); ?></button>
+          <button
+            type="button"
+            class="button js-meta-toggle<?php echo $saved_desc ? ' has-value' : ''; ?>"
+            title="<?php esc_attr_e( 'Modifica meta description', 'jovaddstudio' ); ?>"
+          ><?php esc_html_e( 'Meta', 'jovaddstudio' ); ?></button>
+        </div>
+      </div>
+      <div class="js-meta-edit" hidden>
+        <textarea
+          class="js-meta-textarea"
+          rows="2"
+          maxlength="160"
+          placeholder="<?php esc_attr_e( 'Meta description (50–160 caratteri)', 'jovaddstudio' ); ?>"
+        ><?php echo esc_textarea( $saved_desc ); ?></textarea>
+        <div class="js-meta-edit-footer">
+          <span class="js-meta-counter"></span>
+          <span class="js-meta-save-msg"></span>
+          <button
+            type="button"
+            class="button button-primary js-meta-save"
+            data-post-id="<?php echo (int) $p->ID; ?>"
+            data-nonce="<?php echo esc_attr( wp_create_nonce( 'js_admin_nonce' ) ); ?>"
+          ><?php esc_html_e( 'Salva', 'jovaddstudio' ); ?></button>
         </div>
       </div>
       <div class="js-audit-results" hidden></div>

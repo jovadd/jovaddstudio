@@ -51,6 +51,7 @@ foreach ( [
     'inc/admin/ajax-rename-theme.php', // AJAX: rinomina tema (aggiorna style.css)
     'inc/admin/ajax-seo-audit.php',         // AJAX: SEO audit on-demand
     'inc/admin/ajax-accessibility-audit.php', // AJAX: accessibility audit on-demand
+    'inc/admin/ajax-meta-description.php',    // AJAX: salva meta description per-pagina
     'inc/admin/duplicate-post.php',          // duplica articoli e pagine
     'inc/admin/options-page.php',      // admin menu + page render
 ] as $file ) {

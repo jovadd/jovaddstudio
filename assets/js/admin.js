@@ -598,6 +598,71 @@
   }
 
   /* ----------------------------------------------------------
+     Meta description inline editor
+     ---------------------------------------------------------- */
+
+  function updateMetaCounter( ta ) {
+    const footer  = ta.closest( '.js-meta-edit' );
+    const counter = footer.querySelector( '.js-meta-counter' );
+    const len     = ta.value.length;
+    counter.textContent = len + ' / 160';
+    counter.className   = 'js-meta-counter' + ( len === 0 || ( len >= 50 && len <= 160 ) ? ' is-ok' : ' is-warn' );
+  }
+
+  document.querySelectorAll( '.js-meta-toggle' ).forEach( btn => {
+    btn.addEventListener( 'click', function () {
+      const form = this.closest( '.js-audit-row' ).querySelector( '.js-meta-edit' );
+      form.hidden = ! form.hidden;
+      if ( ! form.hidden ) {
+        const ta = form.querySelector( '.js-meta-textarea' );
+        updateMetaCounter( ta );
+        ta.focus();
+      }
+    } );
+  } );
+
+  document.querySelectorAll( '.js-meta-textarea' ).forEach( ta => {
+    ta.addEventListener( 'input', function () { updateMetaCounter( this ); } );
+  } );
+
+  document.querySelectorAll( '.js-meta-save' ).forEach( btn => {
+    btn.addEventListener( 'click', async function () {
+      const form   = this.closest( '.js-meta-edit' );
+      const ta     = form.querySelector( '.js-meta-textarea' );
+      const msg    = form.querySelector( '.js-meta-save-msg' );
+      const toggle = this.closest( '.js-audit-row' ).querySelector( '.js-meta-toggle' );
+
+      this.disabled = true;
+      msg.textContent = '';
+
+      const fd = new FormData();
+      fd.append( 'action',           'js_save_meta_description' );
+      fd.append( 'nonce',            this.dataset.nonce );
+      fd.append( 'post_id',          this.dataset.postId );
+      fd.append( 'meta_description', ta.value );
+
+      try {
+        const res  = await fetch( jsAdminData.ajaxUrl, { method: 'POST', body: fd } );
+        const json = await res.json();
+        if ( json.success ) {
+          msg.textContent = '✓ Salvato';
+          msg.className   = 'js-meta-save-msg is-ok';
+          toggle.classList.toggle( 'has-value', ta.value.length > 0 );
+        } else {
+          msg.textContent = '✗ ' + ( json.data?.message || 'Errore' );
+          msg.className   = 'js-meta-save-msg is-error';
+        }
+      } catch {
+        msg.textContent = '✗ Errore di rete';
+        msg.className   = 'js-meta-save-msg is-error';
+      } finally {
+        this.disabled = false;
+        setTimeout( () => { msg.textContent = ''; }, 3000 );
+      }
+    } );
+  } );
+
+  /* ----------------------------------------------------------
      Helpers
      ---------------------------------------------------------- */
 
