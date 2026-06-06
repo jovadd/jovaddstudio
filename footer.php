@@ -18,14 +18,14 @@ if ( $wa_float_on && $wa_float_phone ) {
     if ( $wa_float_msg ) $wa_float_url .= '?text=' . rawurlencode( $wa_float_msg );
 }
 ?>
-<footer class="footer border-t" role="contentinfo">
+<footer class="border-t" role="contentinfo">
   <div class="container">
     <div class="footer-copy flex items-center justify-between py-5 flex-wrap gap-4">
 
       <!-- Left: copyright + legal -->
       <div class="footer-left">
         <p class="text-xs text-muted">
-          &copy; <?php echo esc_html( date( 'Y' ) ); ?>
+          &copy; <?php echo esc_html( gmdate( 'Y' ) ); ?>
           <?php echo esc_html( $ragione_sociale ); ?>
           <?php if ( $all_rights ) : ?>
             &mdash; <?php esc_html_e( 'Tutti i diritti riservati', 'jovaddstudio' ); ?>

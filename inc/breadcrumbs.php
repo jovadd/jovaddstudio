@@ -31,8 +31,9 @@ function js_breadcrumbs(): void {
         $items[] = [ 'name' => single_tag_title( '', false ), 'url' => '' ];
 
     } elseif ( is_page() ) {
-        if ( $post->post_parent ) {
-            $ancestors = array_reverse( get_post_ancestors( $post->ID ) );
+        $queried = get_queried_object();
+        if ( $queried && $queried->post_parent ) {
+            $ancestors = array_reverse( get_post_ancestors( $queried->ID ) );
             foreach ( $ancestors as $ancestor ) {
                 $items[] = [ 'name' => get_the_title( $ancestor ), 'url' => get_permalink( $ancestor ) ];
             }

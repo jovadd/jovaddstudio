@@ -83,6 +83,6 @@ function js_duplicate_post_handler(): void {
     }
 
     // Reindirizza all'editor del duplicato
-    wp_redirect( admin_url( 'post.php?action=edit&post=' . $new_id ) );
+    wp_safe_redirect( admin_url( 'post.php?action=edit&post=' . $new_id ) );
     exit;
 }

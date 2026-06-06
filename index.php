@@ -63,7 +63,7 @@
                   </div>
                 <?php endif; ?>
 
-                <div class="flex items-center justify-between py-4 border-t mt-auto">
+                <div class="flex items-center justify-between py-4 border-t">
                   <address class="not-italic flex items-center gap-2 text-xs text-muted">
                     <?php echo get_avatar( get_the_author_meta( 'ID' ), 24, '', '', [ 'class' => 'rounded-full' ] ); ?>
                     <span><?php esc_html_e( 'Scritto da:', 'jovaddstudio' ); ?><br>

@@ -23,7 +23,9 @@
           <?php endif; ?>
 
           <h1 class="text-display uppercase"><?php the_title(); ?></h1>
-          <h2 class="text-m lede leading-normal font-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse mollitia in, nulla corporis totam reiciendis nisi! Soluta fuga, doloribus magni fugit, ipsa ullam eum hic ut architecto maiores similique voluptatem?</h2>
+          <?php $lede = get_the_excerpt(); if ( $lede ) : ?>
+            <p class="text-m leading-normal font-normal"><?php echo esc_html( wp_strip_all_tags( $lede ) ); ?></p>
+          <?php endif; ?>
 
           <p class="text-s text-muted">
             <?php esc_html_e( 'Scritto da:', 'jovaddstudio' ); ?>
@@ -112,7 +114,7 @@
 
               <p class="text-muted text-s clamp-3 flex-1"><?php echo esc_html( wp_strip_all_tags( get_the_excerpt() ) ); ?></p>
 
-              <div class="flex items-center justify-between pt-4 border-t mt-auto">
+              <div class="flex items-center justify-between py-4 border-t">
                 <address class="not-italic flex items-center gap-2 text-xs text-muted">
                   <?php echo get_avatar( get_the_author_meta( 'ID' ), 24, '', '', [ 'class' => 'rounded-full' ] ); ?>
                   <span><?php esc_html_e( 'Scritto da:', 'jovaddstudio' ); ?><br>

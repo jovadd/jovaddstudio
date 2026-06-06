@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || exit;
 $sitename = get_bloginfo( 'name' );
 $headline = js_get_option( 'maintenance_headline' ) ?: 'Qualcosa di nuovo sta arrivando';
 $text     = js_get_option( 'maintenance_text' )     ?: '';
-$year     = date( 'Y' );
+$year     = gmdate( 'Y' );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>

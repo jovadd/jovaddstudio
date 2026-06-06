@@ -24,15 +24,15 @@ function js_ajax_rename_theme(): void {
     }
 
     // Aggiorna Theme Name e Description nel header di style.css
-    $content = preg_replace(
+    $content = preg_replace_callback(
         '/^(Theme Name:\s*).*$/m',
-        '${1}' . $new_name,
+        fn( $m ) => $m[1] . $new_name,
         $content,
         1
     );
-    $content = preg_replace(
+    $content = preg_replace_callback(
         '/^(Description:\s*).*$/m',
-        '${1}Tema WordPress personalizzato creato da Jovadd per ' . $new_name . '.',
+        fn( $m ) => $m[1] . 'Tema WordPress personalizzato creato da Jovadd per ' . $new_name . '.',
         $content,
         1
     );

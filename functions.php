@@ -47,7 +47,6 @@ foreach ( [
     'inc/security.php',          // security hooks (global)
     'inc/admin/options-register.php',  // register_setting + sanitize
     'inc/admin/options-assets.php',    // admin CSS/JS enqueue
-    'inc/admin/ajax-fonts.php',        // AJAX: Google Fonts download
     'inc/admin/ajax-rename-theme.php', // AJAX: rinomina tema (aggiorna style.css)
     'inc/admin/ajax-seo-audit.php',         // AJAX: SEO audit on-demand
     'inc/admin/ajax-accessibility-audit.php', // AJAX: accessibility audit on-demand

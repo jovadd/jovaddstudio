@@ -32,37 +32,6 @@ function js_is_dev(): bool {
 }
 
 /* ----------------------------------------------------------
-   Head: fonts + CSS custom properties
-   ---------------------------------------------------------- */
-
-// Priority 100 — after wp_print_styles (8) so font vars override tokens.css defaults.
-add_action( 'wp_head', 'js_inject_head_styles', 100 );
-function js_inject_head_styles() {
-    $out  = '';
-    $vars = '';
-
-    // @font-face blocks for each installed font role
-    foreach ( [ 'heading', 'body', 'mono' ] as $role ) {
-        $css = js_get_option( "font_{$role}_css" );
-        if ( $css ) $out .= $css;
-    }
-
-    // :root — font-family vars (only when a Google Font is installed)
-    $font_map = [
-        'font_heading_family' => [ '--font-heading', ',system-ui,sans-serif' ],
-        'font_body_family'    => [ '--font-text',    ',system-ui,sans-serif' ],
-        'font_mono_family'    => [ '--font-mono',    ',ui-monospace,monospace' ],
-    ];
-    foreach ( $font_map as $opt => [ $var, $fallback ] ) {
-        $val = js_get_option( $opt );
-        if ( $val ) $vars .= $var . ':"' . esc_attr( $val ) . '"' . $fallback . ';';
-    }
-
-    if ( $vars ) $out .= ':root{' . $vars . '}';
-    if ( $out )  echo '<style id="jovaddstudio-fonts">' . $out . "</style>\n";
-}
-
-/* ----------------------------------------------------------
    Head: SEO meta
    ---------------------------------------------------------- */
 

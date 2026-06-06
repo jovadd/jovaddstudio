@@ -31,14 +31,12 @@ function js_sanitize_options( $input ): array {
     // --- Plain text fields ---
     $text_fields = [
         'maintenance_headline',
-        'header_cta_label', 'header_cta_url', 'header_cta_whatsapp_msg',
+        'header_cta_label', 'header_cta_whatsapp_msg',
         'wa_float_msg',
         'social_instagram', 'social_linkedin', 'social_behance', 'social_github', 'social_x',
-        'fonts_api_key',
-        'font_heading_family', 'font_body_family', 'font_mono_family',
         'analytics_ga_id', 'analytics_gtm_id', 'analytics_fb_pixel',
         'seo_meta_description', 'seo_robots', 'seo_google_sc_verification',
-        'special_404_title', 'special_404_cta_text', 'special_404_cta_url',
+        'special_404_title', 'special_404_cta_text',
     ];
     foreach ( $text_fields as $key ) {
         if ( isset( $input[ $key ] ) ) {
@@ -47,7 +45,7 @@ function js_sanitize_options( $input ): array {
     }
 
     // --- URL fields ---
-    $url_fields = [ 'seo_og_image', 'social_instagram', 'social_linkedin', 'social_behance', 'social_github', 'social_x' ];
+    $url_fields = [ 'seo_og_image', 'header_cta_url', 'special_404_cta_url', 'social_instagram', 'social_linkedin', 'social_behance', 'social_github', 'social_x' ];
     foreach ( $url_fields as $key ) {
         if ( isset( $input[ $key ] ) ) {
             $clean[ $key ] = esc_url_raw( $input[ $key ] );
@@ -126,13 +124,6 @@ function js_sanitize_options( $input ): array {
     ];
     foreach ( $bool_fields as $key ) {
         $clean[ $key ] = ! empty( $input[ $key ] ) ? '1' : '0';
-    }
-
-    // --- Preserve font CSS (managed by AJAX, not form submit) ---
-    foreach ( [ 'font_heading_css', 'font_body_css', 'font_mono_css' ] as $key ) {
-        if ( isset( $existing[ $key ] ) ) {
-            $clean[ $key ] = $existing[ $key ];
-        }
     }
 
     return $clean;

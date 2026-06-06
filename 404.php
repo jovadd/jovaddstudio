@@ -4,7 +4,7 @@ $title    = js_get_option( 'special_404_title',    __( 'Pagina non trovata', 'jo
 $text     = js_get_option( 'special_404_text',     __( 'La pagina che stai cercando non esiste o è stata spostata.', 'jovaddstudio' ) );
 $cta_txt  = js_get_option( 'special_404_cta_text', __( 'Torna alla home', 'jovaddstudio' ) );
 $cta_url  = js_get_option( 'special_404_cta_url',  home_url( '/' ) );
-$year     = date( 'Y' );
+$year     = gmdate( 'Y' );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
